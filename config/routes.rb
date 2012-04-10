@@ -25,6 +25,18 @@ Dcare::Application.routes.draw do
   #     end
   #   end
 
+  resources :users
+  resources :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
+
+
+  resources :home do
+    collection do
+      get 'welcome'
+    end
+  end
+
   # Sample resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
@@ -48,7 +60,7 @@ Dcare::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#welcome'
 
   # See how all your routes lay out with "rake routes"
 
