@@ -2,14 +2,20 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, :only => [:new, :create]
 
   def new
-    @tab = TabConstants::REGISTER
+    # @tab = TabConstants::REGISTER
+    @user = User.new
   end
 
   def create
-    if @user.save
+    @user = User.new(params[:user])
+    @user.valid?
+    captcha_success = verify_recaptcha
+    if captcha_success && @user.save
       redirect_to user_url(@user)
     else
-      @tab = TabConstants::REGISTER
+      flash.delete(:recaptcha_error)
+      flash.now[:error] = "Please re-enter the words from the image again!" unless captcha_success
+      # @tab = TabConstants::REGISTER
       render :action => "new"
     end
   end
@@ -27,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @tab = TabConstants::HOME
+    # @tab = TabConstants::HOME
   end
 
   def index

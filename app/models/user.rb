@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   
-  attr_accessible :name, :date_of_birth, :gender, :email
+  attr_accessible :name, :date_of_birth, :gender, :email, :password, :password_confirmation
 
   GENDER = ["Male", "Female", "Other"]
 
