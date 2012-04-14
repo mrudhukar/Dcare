@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
 
   validates :name, :date_of_birth, :gender, :presence => true
   validates :gender, :inclusion => {:in => GENDER}
+  
+  has_many :phones
+  has_many :addresses
 end

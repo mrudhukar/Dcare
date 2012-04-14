@@ -11,12 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410174539) do
+ActiveRecord::Schema.define(:version => 20120414104800) do
 
-  create_table "user_sessions", :force => true do |t|
+  create_table "addresses", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "district"
+    t.string   "state"
+    t.string   "country"
+    t.string   "pin"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "addresses", ["user_id"], :name => "index_addresses_on_user_id"
+
+  create_table "phone_types", :force => true do |t|
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "phones", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "phone_number"
+    t.integer  "phone_type_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "phones", ["phone_type_id"], :name => "index_phones_on_phone_type_id"
+  add_index "phones", ["user_id"], :name => "index_phones_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name",                               :null => false
