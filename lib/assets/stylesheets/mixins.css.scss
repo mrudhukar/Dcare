@@ -1,0 +1,14 @@
+@mixin rounded-corners($radius) {
+  -moz-border-radius: $radius;
+  border-radius:  $radius;
+}
+
+@mixin linear-gradient($c1, $c2){
+  background-repeat: no-repeat;
+  background-color: $c2;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($c1), to($c2));
+  background-image: -webkit-linear-gradient($c1, $c2);
+  background-image: -moz-linear-gradient($c1, $c2);
+  background-image: -o-linear-gradient(top, $c1, $c2);
+  background-image: -khtml-gradient(linear, left top, left bottom, from($c1), to($c2));
+}
