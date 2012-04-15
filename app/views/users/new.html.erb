@@ -1,0 +1,25 @@
+<% @title = "Sign Up" %>
+<% @page_action = {name: "Login", url: new_user_session_path()} %>
+
+<%= simple_form_for @user, :validate => true, :html => { :class => 'form-horizontal span7 well' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :gender, :collection => User::GENDER, :prompt => "Select.." %>
+  <%= f.input :date_of_birth, :as => :date, :start_year => Date.today.year - 90,
+                              :end_year => Date.today.year - 12, :order => [:day, :month, :year], :input_html => { :class => 'span1' } %>
+
+  <div class="control-group check_boxes required">
+    <label class="control-label">
+      <abbr title="required">*</abbr> Word Verification
+    </label>
+    <div class="controls">
+      <%= recaptcha_tags :display => {:theme => "clean", :tabindex => 0} %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Sign Up", :class => 'btn btn-primary', :disable_with => "please wait.." %>
+  </div>
+<% end %>

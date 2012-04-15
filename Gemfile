@@ -19,12 +19,14 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails', github: "seyhunak/twitter-bootstrap-rails"
 end
 
 gem 'jquery-rails'
 
 gem 'authlogic'
 gem "cancan"
+gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -40,3 +42,4 @@ gem "cancan"
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+gem "recaptcha", :require => "recaptcha/rails"
