@@ -1,4 +1,4 @@
-@import "mixins.css.scss";
+@import "bourbon";
 
 .coin-slider-container{
   margin: 0 auto 30px auto;
@@ -10,7 +10,7 @@
     top: 10px !important;
     bottom: 173px !important;
     @include linear-gradient(#004D9F, #049CD9);
-    @include rounded-corners(5px);
+    @include border-radius(5px);
 
     p{
       text-align: right;
