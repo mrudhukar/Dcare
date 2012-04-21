@@ -27,6 +27,7 @@ gem 'jquery-rails'
 gem 'authlogic'
 gem "cancan"
 gem 'simple_form'
+gem 'kaminari'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,3 +48,4 @@ end
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "recaptcha", :require => "recaptcha/rails"
+gem 'forem', :git => "git://github.com/radar/forem.git"
