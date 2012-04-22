@@ -11,12 +11,16 @@
 <body>
   <%= render :partial => "common/top_navigation" %>
 
-  <div class="container-fluid">
+  <div class="container-fluid centered_content">
     <%= render :partial => "common/inner_header" %>
     <div class="row-fluid">
       <div class="span12"><%= yield %></div>
     </div>
   </div>
+
+  <footer class="footer">
+    <p>&copy; Company 2012</p>
+  </footer>
 
 </body>
 </html>
