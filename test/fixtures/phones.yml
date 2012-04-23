@@ -2,10 +2,12 @@
 
 one:
   user: 
-  phone_number: 1
-  phone_type: 
+  mobile_number: MyString
+  office_number: MyString
+  home_number: MyString
 
 two:
   user: 
-  phone_number: 1
-  phone_type: 
+  mobile_number: MyString
+  office_number: MyString
+  home_number: MyString

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  name: MyString
+  description: MyString
+  diagnosis_date: 2012-04-23
+
+two:
+  user: 
+  name: MyString
+  description: MyString
+  diagnosis_date: 2012-04-23

@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'authlogic'
 gem "cancan"
 gem 'simple_form'
+gem 'country_select'
 gem 'kaminari'
 
 # To use ActiveModel has_secure_password

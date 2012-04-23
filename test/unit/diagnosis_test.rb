@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PhoneTypeTest < ActiveSupport::TestCase
+class DiagnosisTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
