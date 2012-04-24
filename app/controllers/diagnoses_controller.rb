@@ -1,7 +1,5 @@
 class DiagnosesController < ApplicationController
   
-  skip_before_filter :require_login
-  
    def new
      @diagnosis = Diagnosis.new
    end
