@@ -24,13 +24,13 @@ Dcare::Application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+  match 'diagnoses/latest_report' => 'diagnoses#latest_report', :as => :latest_report_diagnosis_path
 
   resources :users
   resources :user_sessions
   resources :diagnoses
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
-
 
   resources :home do
     collection do

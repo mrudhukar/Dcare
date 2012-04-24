@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  diagnosis: 
+  hemoglobin_total: MyString
+  hemoglobin_differential_count: MyString
+  esr: MyString
+  blood_sugar_fasting: MyString
+  blood_sugar_pp: MyString
+  hba1c: MyString
+  triglycerides: MyString
+  total_cholestrol: MyString
+  ldl: MyString
+  hdl: MyString
+  blood_urea: MyString
+  serum_uric_acid: MyString
+  serum_creatinine: MyString
+  LFT_serum_albumin: MyString
+  LFT_gloulin_ratio: MyString
+  LFT_serum_bilirubin: MyString
+  LFT_SGOT: MyString
+  LFT_SGPT: MyString
+  LFT_GGT: MyString
+
+two:
+  diagnosis: 
+  hemoglobin_total: MyString
+  hemoglobin_differential_count: MyString
+  esr: MyString
+  blood_sugar_fasting: MyString
+  blood_sugar_pp: MyString
+  hba1c: MyString
+  triglycerides: MyString
+  total_cholestrol: MyString
+  ldl: MyString
+  hdl: MyString
+  blood_urea: MyString
+  serum_uric_acid: MyString
+  serum_creatinine: MyString
+  LFT_serum_albumin: MyString
+  LFT_gloulin_ratio: MyString
+  LFT_serum_bilirubin: MyString
+  LFT_SGOT: MyString
+  LFT_SGPT: MyString
+  LFT_GGT: MyString

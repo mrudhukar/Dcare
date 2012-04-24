@@ -1,0 +1,113 @@
+<% @title = "Diagnosis Report" %>
+<%= simple_form_for @diagnosis, :validate => true, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="container-fluid">
+	    <div class="row-fluid">
+	    <div>
+		    
+		    <div class="block_oval">
+		    	<div class="row-fluid">
+		    		<div class="span2">
+		    			<label class="label_header">Diagnosis Name</label>
+		    		</div>
+		    		<div class="span4">
+		    			<%= @diagnosis.name%>
+		    		</div>
+		    	</div>
+		    	<div class="row-fluid">
+		    		<div class="span2">
+		    			<label class="label_header">Diagnosis Description</label>
+		    		</div>
+		    		<div class="span4">
+		    			<%= @diagnosis.description%>
+		    		</div>
+		    		<div class="span4">
+		    			<%= link_to "Save", diagnosis_path(@diagnosis), :class => 'btn btn-primary'%>
+		    			<%= link_to "Edit", edit_diagnosis_path(@diagnosis), :class => 'btn btn-danger'%>
+		    			<%= link_to "Cancel", diagnosis_path(@diagnosis), :class => 'btn'%>
+		    			<%= link_to "Print Report", diagnosis_path(@diagnosis), :class => 'btn'%>
+		    		</div>
+		    	</div>
+		    	<div class="row-fluid">
+		    		<div class="span2">
+		    			<label class="label_header">Diagnosis Date</label>
+		    		</div>
+		    		<div class="span4">
+		    			<%= @diagnosis.diagnosis_date%>
+		    		</div>
+		    	</div>
+		    </div>
+			
+		    <div>
+		    	<div class="tabbable">
+					<ul class="nav nav-tabs">
+					<li class="active"><a href="#1" data-toggle="tab">Bloot Test</a></li>
+					<li><a href="#2" data-toggle="tab">Anthropometry</a></li>
+					<li><a href="#3" data-toggle="tab">Urine</a></li>
+					<li><a href="#4" data-toggle="tab">Others</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="1">
+							<%= f.simple_fields_for :diagnosis_blood_test do |diagnosis_blood_test| %>
+						  		<%= diagnosis_blood_test.input :hemoglobin_total %>
+						  		<%= diagnosis_blood_test.input :hemoglobin_differential_count %>
+						  		<%= diagnosis_blood_test.input :esr %>
+						  		<%= diagnosis_blood_test.input :blood_sugar_fasting %>
+						  		<%= diagnosis_blood_test.input :blood_sugar_pp %>
+						  		<%= diagnosis_blood_test.input :hba1c %>
+						  		<%= diagnosis_blood_test.input :triglycerides %>
+						  		<%= diagnosis_blood_test.input :total_cholestrol %>
+						  		<%= diagnosis_blood_test.input :ldl %>
+						  		<%= diagnosis_blood_test.input :hdl %>
+						  		<%= diagnosis_blood_test.input :blood_urea %>
+						  		<%= diagnosis_blood_test.input :serum_uric_acid %>
+						  		<%= diagnosis_blood_test.input :serum_creatinine %>
+						  		<%= diagnosis_blood_test.input :LFT_serum_albumin %>
+						  		<%= diagnosis_blood_test.input :LFT_gloulin_ratio %>
+						  		<%= diagnosis_blood_test.input :LFT_serum_bilirubin %>
+						  		<%= diagnosis_blood_test.input :LFT_SGOT %>
+						  		<%= diagnosis_blood_test.input :LFT_SGPT %>
+						  		<%= diagnosis_blood_test.input :LFT_GGT %>
+						  	<%end%>
+						</div>
+						<div class="tab-pane" id="2">
+							<%= f.simple_fields_for :diagnosis_anthropometry do |diagnosis_anthropometry| %>
+						  		<%= diagnosis_anthropometry.input :height %>
+						  		<%= diagnosis_anthropometry.input :weight %>
+						  		<%= diagnosis_anthropometry.input :bmi %>
+						  		<%= diagnosis_anthropometry.input :abdominal_girth %>
+						  		<%= diagnosis_anthropometry.input :systoloic_bp %>
+						  		<%= diagnosis_anthropometry.input :diastolic_bp_supine %>
+						  		<%= diagnosis_anthropometry.input :diastolic_bp_errect %>
+						  	<%end%>
+						</div>
+						<div class="tab-pane" id="3">
+							<%= f.simple_fields_for :diagnosis_urine do |diagnosis_urine| %>
+						  		<%= diagnosis_urine.input :urine_pus_cells %>
+						  		<%= diagnosis_urine.input :urine_spot_protien %>
+						  		<%= diagnosis_urine.input :GFR %>
+						  		<%= diagnosis_urine.input :sugar %>
+						  		<%= diagnosis_urine.input :ketones %>
+						  		<%= diagnosis_urine.input :microalbumin %>
+						  		<%= diagnosis_urine.input :alb %>
+						  	<%end%>
+						</div>
+						<div class="tab-pane" id="4">
+							<%= f.simple_fields_for :diagnosis_other do |diagnosis_other| %>
+						  		<%= diagnosis_other.input :fundus %>
+						  		<%= diagnosis_other.input :VPT %>
+						  		<%= diagnosis_other.input :ECG %>
+						  		<%= diagnosis_other.input :TMT %>
+						  		<%= diagnosis_other.input :echocardiography_2d %>
+						  		<%= diagnosis_other.input :angiography %>
+						  		<%= diagnosis_other.input :ultrasound %>
+						  		<%= diagnosis_other.input :carotid_doppler %>
+						  		<%= diagnosis_other.input :color_doppler_for_limbs %>
+						  	<%end%>
+						</div>
+					</div>
+				</div>
+		    </div>
+	    </div>
+		</div>
+</div>
+<%end%>

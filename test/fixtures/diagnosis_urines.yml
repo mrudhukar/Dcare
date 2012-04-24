@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  diagnosis: 
+  urine_pus_cells: MyString
+  urine_spot_protien: MyString
+  GFR: MyString
+  sugar: MyString
+  ketones: MyString
+  microalbumin: MyString
+  alb: MyString
+
+two:
+  diagnosis: 
+  urine_pus_cells: MyString
+  urine_spot_protien: MyString
+  GFR: MyString
+  sugar: MyString
+  ketones: MyString
+  microalbumin: MyString
+  alb: MyString

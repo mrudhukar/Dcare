@@ -1,5 +1,4 @@
-<% @title = "Add Medical Report" %>
-
+<% @title = "Edit Report" %>
 <%= simple_form_for @diagnosis, :validate => true, :html => { :class => 'form-horizontal span7 well' } do |f| %>
   <%= f.input :name%>
   <%= f.input :description, :as => :text, :input_html => { :cols => 50, :rows => 7, :class => 'span5' } %>
@@ -7,6 +6,6 @@
                               :end_year => Date.today.year, :order => [:day, :month, :year], :input_html => { :class => 'span1' } %>
   
   <div class="form-actions">
-    <%= f.submit "Create", :class => 'btn btn-primary', :disable_with => "please wait.." %>
+    <%= f.submit "Update", :class => 'btn btn-primary', :disable_with => "please wait.." %>
   </div>
 <% end %>
