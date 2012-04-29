@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :name, :date_of_birth, :gender, :presence => true
   validates :gender, :inclusion => {:in => GENDER}
   
-  has_one :phone
-  has_one :address
+  has_one :phone, :dependent => :destroy
+  has_one :address, :dependent => :destroy
   
 end
