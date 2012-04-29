@@ -23,6 +23,9 @@ class UsersController < ApplicationController
   def edit
     logger.info 'Entered edit action'
     @user = User.find(params[:id])
+    logger.info 'Logging phone'
+    logger.info @user.phone.mobile_number
+    logger.info 'Logged phone'
     #@phones = Phone.where(:user_id => @user.id)
     #logger.info 'No phones' if @phones.size == 0
     #@phones = @user.phones
@@ -31,7 +34,29 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
+    user = params[:user]
+    
+    #Adding phone
+    phones = Phone.where(:user_id => @user.id)
+    phone = if phones.size == 0
+      Phone.new
+    else
+      phones.first
+    end
+    phone.update_attributes(user[:phone])
+    user[:phone] = phone
+    
+    #Adding address
+    addresses = Address.where(:user_id => @user.id)
+    address = if addresses.size == 0
+      Address.new
+    else
+      addresses.first
+    end
+    address.update_attributes(user[:address])
+    user[:address] = address
+    
+    if @user.update_attributes(user)
       flash[:notice] = "Successfull updated your profile"
       redirect_to user_path(@user)
     else

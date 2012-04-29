@@ -43,10 +43,6 @@ gem 'kaminari'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-group :production do
-  gem 'pg'
-end
-
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "recaptcha", :require => "recaptcha/rails"
