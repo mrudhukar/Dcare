@@ -1,0 +1,52 @@
+.forem_hacks{
+  table.subdued tbody .started-by {
+    font-size: 0.8em;
+    color: #888;
+  }
+
+  #topic_subject{
+    width: 200px;
+  }
+
+  #forum small{
+    color: #888;
+  }
+
+  textarea{
+    width: 400px;
+    height: 100px;
+  }
+
+  menu{
+    text-align: right;
+    margin: 0;
+  }
+
+  #posts{
+    .post{
+      margin: 5px 0;
+      padding: 10px 0;
+      &.even{
+        background-color: #F9F9F9;
+      }
+      .contents{
+        margin-left: 10px;
+        time{
+          color: #888;
+          font-size: 0.8em;
+        }
+        p{
+          margin-top: 5px;
+          font-size: 1.1em;
+        }
+        .in_reply_to{
+          font-size: 0.8em;
+        }
+        ul{
+          margin-left: 0;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

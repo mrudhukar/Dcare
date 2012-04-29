@@ -29,3 +29,12 @@ body{
   background-color: #CCC;
   margin-top: 20px;
 }
+
+form.well{
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  .form-actions{
+    margin-bottom: 0;
+  }
+} 

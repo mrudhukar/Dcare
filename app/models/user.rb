@@ -10,5 +10,36 @@ class User < ActiveRecord::Base
   
   has_one :phone, :dependent => :destroy
   has_one :address, :dependent => :destroy
-  
+
+  def to_s
+    name
+  end
+
+  def can_read_forem_category?(category)
+  	true
+  end
+
+  def can_read_forem_forums?
+  	true
+  end
+
+  def can_read_forem_forum?(forum)
+  	true
+  end
+
+  def can_create_forem_topics?(forum)
+  	true
+  end
+
+  def can_read_forem_topic?(forum)
+  	true
+  end
+
+  def can_reply_to_forem_topic?(topic)
+  	true
+  end
+
+  def can_edit_forem_posts?(forum)
+  	true
+  end
 end

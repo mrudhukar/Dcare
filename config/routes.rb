@@ -1,4 +1,5 @@
 Dcare::Application.routes.draw do
+  mount Forem::Engine, :at => "/forums"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

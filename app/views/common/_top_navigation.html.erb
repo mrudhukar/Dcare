@@ -11,18 +11,18 @@
       <% if current_user %>
         <ul class="nav">
           <li class="active">
-            <%= link_to("Home", root_path) %>
+            <%= link_to("Home", main_app.root_path) %>
           </li>
           
           <li class="dropdown">
             <%= link_to("My Diabetes Profile", "#", :class => "dropdown-toggle", :data => {:toggle => "dropdown"}) %>
             <ul class="dropdown-menu">
-              <li><%= link_to "Last daignosis report", :latest_report_diagnosis_path %></li>
-              <li><%= link_to "All Medical Reports", diagnoses_path %></li>
+              <li><%= link_to "Last daignosis report", main_app.latest_report_diagnosis_path %></li>
+              <li><%= link_to "All Medical Reports", main_app.diagnoses_path %></li>
               <li><%= link_to "Medical Calendar", "#" %></li>
               <li><%= link_to "Medical History", "#" %></li>
               <li class="divider"></li>
-              <li><%= link_to "Add a new medical report", new_diagnosis_path() %></li>
+              <li><%= link_to "Add a new medical report", main_app.new_diagnosis_path() %></li>
             </ul>
           </li>
 
@@ -44,8 +44,13 @@
               <li><%= link_to("Question & Answers", "#") %></li>
               <li class="divider"></li>
               <li class="nav-header">Forums</li>
-              <li><%= link_to "Type 1 Daibebtes", "#" %></li>
-              <li><%= link_to "Type 2 Daibebtes", "#" %></li>
+              <%= content_tag_for(:li, Forem::Forum.all) do |forum| %>
+                <%= link_to forum.title, forem.forum_path(forum) %>
+              <% end %>
+              <% if current_user.forem_admin %>
+                <li class="divider"></li>
+                <li><%= link_to "Manage Forums", forem.admin_root_url %></li>
+              <% end %>
             </ul>
           </li>
           <li class="divider-vertical"></li>
@@ -61,9 +66,9 @@
           <li class="dropdown">
             <%= link_to((current_user.name + ' <b class="caret"></b>').html_safe, "#", :class => "dropdown-toggle", :data => {:toggle => "dropdown"}) %>
             <ul class="dropdown-menu">
-              <li><%= link_to "Edit Profile", edit_user_path(current_user)%></li>
+              <li><%= link_to "Edit Profile", main_app.edit_user_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to "Logout", logout_path %></li>
+              <li><%= link_to "Logout", main_app.logout_path() %></li>
             </ul>
           </li>
         <% else %>
