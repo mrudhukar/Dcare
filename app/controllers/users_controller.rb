@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :require_login, :only => [:new, :create]
+  skip_before_filter :require_login, :only => [:new, :create, :dashboard]
+  load_and_authorize_resource :except => [:dashboard]
 
   def new
     # @tab = TabConstants::REGISTER
@@ -21,19 +22,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    logger.info 'Entered edit action'
-    @user = User.find(params[:id])
-    logger.info 'Logging phone'
-    logger.info @user.phone.mobile_number
-    logger.info 'Logged phone'
-    #@phones = Phone.where(:user_id => @user.id)
-    #logger.info 'No phones' if @phones.size == 0
-    #@phones = @user.phones
-    #logger.info 'Have phones' if @phones.size != 0
   end
 
   def update
-    @user = User.find(params[:id])
     user = params[:user]
     
     #Adding phone
@@ -66,9 +57,14 @@ class UsersController < ApplicationController
 
   def show
     # @tab = TabConstants::HOME
-    @user = User.find(params[:id])
+    logger.info flash.inspect
   end
 
   def index
   end
+
+  def dashboard
+    redirect_to welcome_path() unless current_user
+  end
+
 end

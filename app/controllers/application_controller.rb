@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :require_login
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
   protected
 
   def current_user_session
