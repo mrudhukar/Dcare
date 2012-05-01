@@ -1,7 +1,6 @@
 class Phone < ActiveRecord::Base
-  attr_accessible :home_number, :mobile_number, :office_number, :user
+  attr_protected :user
   
   belongs_to :user
-
-  validates :user, :presence => true
+  validates :user, :mobile_number, :presence => true
 end

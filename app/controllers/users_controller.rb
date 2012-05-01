@@ -22,6 +22,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    phone   = @user.phone   || @user.build_phone
+    address = @user.address || @user.build_address
   end
 
   def settings
@@ -32,28 +34,9 @@ class UsersController < ApplicationController
       handle_settings_update
       return
     end
-    user = params[:user]
-    
-    #Adding phone
-    phones = Phone.where(:user_id => @user.id)
-    phone = if phones.size == 0
-      Phone.new
-    else
-      phones.first
-    end
-    phone.update_attributes(user[:phone])
-    user[:phone] = phone
-    
-    #Adding address
-    addresses = Address.where(:user_id => @user.id)
-    address = if addresses.size == 0
-      Address.new
-    else
-      addresses.first
-    end
-    address.update_attributes(user[:address])
-    user[:address] = address
-    
+
+    user = params[:user].slice(*[:name, :date_of_birth, :gender, :phone_attributes, :address_attributes])
+        
     if @user.update_attributes(user)
       redirect_to user_path(@user), :notice => "Successfull updated your profile"
     else

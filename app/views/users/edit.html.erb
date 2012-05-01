@@ -4,6 +4,11 @@
   <%= simple_form_for @user, :validate => true, :html => { :class => 'form-horizontal span7 well' } do |f| %>
     <%= f.input :name %>
     <%= f.input :gender, :collection => User::GENDER, :prompt => "Select.." %>
+    <%= f.input :date_of_birth, :as => :date,
+                                :start_year => Date.today.year - 90,
+                                :end_year => Date.today.year - 12,
+                                :order => [:day, :month, :year],
+                                :input_html => { :class => 'span1' } %>
 
     <%= f.simple_fields_for :phone do |phone| %>
       <%= phone.input :home_number %>
@@ -11,12 +16,12 @@
     <%end%>
 
     <%= f.simple_fields_for :address do |address|%>
-      <%= address.input :line1%>
-      <%= address.input :line2%>
-      <%= address.input :district%>
-      <%= address.input :state%>
-      <%= address.input :country%>
-      <%= address.input :pin%>
+      <%= address.input :line1 %>
+      <%= address.input :line2 %>
+      <%= address.input :district %>
+      <%= address.input :state %>
+      <%= address.input :country, :prompt => "Select.." %>
+      <%= address.input :pin %>
     <%end%>
     <div class="form-actions">
       <%= f.submit "Update", :class => 'btn btn-primary', :disable_with => "please wait.." %>

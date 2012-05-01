@@ -1,6 +1,6 @@
 class Address < ActiveRecord::Base
-  belongs_to :user
-  attr_accessible :country, :district, :line1, :line2, :pin, :state
+  attr_protected :user
 
-  validates :user, :presence => true
+  belongs_to :user
+  validates :user, :country, :state, :line1, :presence => true
 end
