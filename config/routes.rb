@@ -36,11 +36,7 @@ Dcare::Application.routes.draw do
   end
 
   resources :user_sessions
-  resources :diagnoses do
-    collection do
-      get 'latest_report'
-    end
-  end
+  resources :diagnoses
 
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout

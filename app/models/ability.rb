@@ -8,10 +8,10 @@ class Ability
     if user.admin?
      can :manage, :all
     else
-      can :read, :all
-      can :create, User
-      can :update, User, :id => user.id
-      can :settings, User, :id => user.id
+      can [:read, :create], User
+      can [:update, :settings], User, :id => user.id
+
+      can :manage, Diagnosis, :user_id => user.id
     end
 
 

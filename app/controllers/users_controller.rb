@@ -46,7 +46,6 @@ class UsersController < ApplicationController
 
   def show
     # @tab = TabConstants::HOME
-    logger.info flash.inspect
   end
 
   def index
