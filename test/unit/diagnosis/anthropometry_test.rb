@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DiagnosisAnthropometryTest < ActiveSupport::TestCase
+class Diagnosis::AnthropometryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

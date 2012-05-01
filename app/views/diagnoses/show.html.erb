@@ -47,61 +47,61 @@
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="1">
-							<%= f.simple_fields_for :diagnosis_blood_test do |diagnosis_blood_test| %>
-						  		<%= diagnosis_blood_test.input :hemoglobin_total %>
-						  		<%= diagnosis_blood_test.input :hemoglobin_differential_count %>
-						  		<%= diagnosis_blood_test.input :esr %>
-						  		<%= diagnosis_blood_test.input :blood_sugar_fasting %>
-						  		<%= diagnosis_blood_test.input :blood_sugar_pp %>
-						  		<%= diagnosis_blood_test.input :hba1c %>
-						  		<%= diagnosis_blood_test.input :triglycerides %>
-						  		<%= diagnosis_blood_test.input :total_cholestrol %>
-						  		<%= diagnosis_blood_test.input :ldl %>
-						  		<%= diagnosis_blood_test.input :hdl %>
-						  		<%= diagnosis_blood_test.input :blood_urea %>
-						  		<%= diagnosis_blood_test.input :serum_uric_acid %>
-						  		<%= diagnosis_blood_test.input :serum_creatinine %>
-						  		<%= diagnosis_blood_test.input :LFT_serum_albumin %>
-						  		<%= diagnosis_blood_test.input :LFT_gloulin_ratio %>
-						  		<%= diagnosis_blood_test.input :LFT_serum_bilirubin %>
-						  		<%= diagnosis_blood_test.input :LFT_SGOT %>
-						  		<%= diagnosis_blood_test.input :LFT_SGPT %>
-						  		<%= diagnosis_blood_test.input :LFT_GGT %>
+							<%= f.simple_fields_for :blood_test do |blood_test| %>
+						  		<%= blood_test.input :hemoglobin_total %>
+						  		<%= blood_test.input :hemoglobin_differential_count %>
+						  		<%= blood_test.input :esr %>
+						  		<%= blood_test.input :blood_sugar_fasting %>
+						  		<%= blood_test.input :blood_sugar_pp %>
+						  		<%= blood_test.input :hba1c %>
+						  		<%= blood_test.input :triglycerides %>
+						  		<%= blood_test.input :total_cholestrol %>
+						  		<%= blood_test.input :ldl %>
+						  		<%= blood_test.input :hdl %>
+						  		<%= blood_test.input :blood_urea %>
+						  		<%= blood_test.input :serum_uric_acid %>
+						  		<%= blood_test.input :serum_creatinine %>
+						  		<%= blood_test.input :LFT_serum_albumin %>
+						  		<%= blood_test.input :LFT_gloulin_ratio %>
+						  		<%= blood_test.input :LFT_serum_bilirubin %>
+						  		<%= blood_test.input :LFT_SGOT %>
+						  		<%= blood_test.input :LFT_SGPT %>
+						  		<%= blood_test.input :LFT_GGT %>
 						  	<%end%>
 						</div>
 						<div class="tab-pane" id="2">
-							<%= f.simple_fields_for :diagnosis_anthropometry do |diagnosis_anthropometry| %>
-						  		<%= diagnosis_anthropometry.input :height %>
-						  		<%= diagnosis_anthropometry.input :weight %>
-						  		<%= diagnosis_anthropometry.input :bmi %>
-						  		<%= diagnosis_anthropometry.input :abdominal_girth %>
-						  		<%= diagnosis_anthropometry.input :systoloic_bp %>
-						  		<%= diagnosis_anthropometry.input :diastolic_bp_supine %>
-						  		<%= diagnosis_anthropometry.input :diastolic_bp_errect %>
+							<%= f.simple_fields_for :anthropometry do |anthropometry| %>
+						  		<%= anthropometry.input :height %>
+						  		<%= anthropometry.input :weight %>
+						  		<%= anthropometry.input :bmi %>
+						  		<%= anthropometry.input :abdominal_girth %>
+						  		<%= anthropometry.input :systoloic_bp %>
+						  		<%= anthropometry.input :diastolic_bp_supine %>
+						  		<%= anthropometry.input :diastolic_bp_errect %>
 						  	<%end%>
 						</div>
 						<div class="tab-pane" id="3">
-							<%= f.simple_fields_for :diagnosis_urine do |diagnosis_urine| %>
-						  		<%= diagnosis_urine.input :urine_pus_cells %>
-						  		<%= diagnosis_urine.input :urine_spot_protien %>
-						  		<%= diagnosis_urine.input :GFR %>
-						  		<%= diagnosis_urine.input :sugar %>
-						  		<%= diagnosis_urine.input :ketones %>
-						  		<%= diagnosis_urine.input :microalbumin %>
-						  		<%= diagnosis_urine.input :alb %>
+							<%= f.simple_fields_for :urine do |urine| %>
+						  		<%= urine.input :urine_pus_cells %>
+						  		<%= urine.input :urine_spot_protien %>
+						  		<%= urine.input :GFR %>
+						  		<%= urine.input :sugar %>
+						  		<%= urine.input :ketones %>
+						  		<%= urine.input :microalbumin %>
+						  		<%= urine.input :alb %>
 						  	<%end%>
 						</div>
 						<div class="tab-pane" id="4">
-							<%= f.simple_fields_for :diagnosis_other do |diagnosis_other| %>
-						  		<%= diagnosis_other.input :fundus %>
-						  		<%= diagnosis_other.input :VPT %>
-						  		<%= diagnosis_other.input :ECG %>
-						  		<%= diagnosis_other.input :TMT %>
-						  		<%= diagnosis_other.input :echocardiography_2d %>
-						  		<%= diagnosis_other.input :angiography %>
-						  		<%= diagnosis_other.input :ultrasound %>
-						  		<%= diagnosis_other.input :carotid_doppler %>
-						  		<%= diagnosis_other.input :color_doppler_for_limbs %>
+							<%= f.simple_fields_for :other do |other| %>
+						  		<%= other.input :fundus %>
+						  		<%= other.input :VPT %>
+						  		<%= other.input :ECG %>
+						  		<%= other.input :TMT %>
+						  		<%= other.input :echocardiography_2d %>
+						  		<%= other.input :angiography %>
+						  		<%= other.input :ultrasound %>
+						  		<%= other.input :carotid_doppler %>
+						  		<%= other.input :color_doppler_for_limbs %>
 						  	<%end%>
 						</div>
 					</div>

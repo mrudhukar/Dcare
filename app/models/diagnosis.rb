@@ -1,8 +1,12 @@
 class Diagnosis < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :description, :diagnosis_date, :name, :diagnosis_blood_test, :diagnosis_anthropometry, :diagnosis_urine, :diagnosis_other
-  has_one :diagnosis_blood_test
-  has_one :diagnosis_anthropometry
-  has_one :diagnosis_urine
-  has_one :diagnosis_other
+
+  attr_protected :user_id, :user
+
+  has_one :blood_test, :dependent => :destroy, :class_name => "Diagnosis::BloodTest"
+  has_one :anthropometry, :dependent => :destroy, :class_name => "Diagnosis::Anthropometry"
+  has_one :urine, :dependent => :destroy, :class_name => "Diagnosis::Urine"
+  has_one :other, :dependent => :destroy, :class_name => "Diagnosis::Other"
+
+  validates :name, :diagnosis_date, :presence => true
 end

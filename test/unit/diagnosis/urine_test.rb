@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DiagnosisUrineTest < ActiveSupport::TestCase
+class Diagnosis::UrineTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
