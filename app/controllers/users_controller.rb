@@ -24,7 +24,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def settings
+  end
+
   def update
+    if params[:settings] == "true"
+      handle_settings_update
+      return
+    end
     user = params[:user]
     
     #Adding phone
@@ -48,8 +55,7 @@ class UsersController < ApplicationController
     user[:address] = address
     
     if @user.update_attributes(user)
-      flash[:notice] = "Successfull updated your profile"
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), :notice => "Successfull updated your profile"
     else
       render :action => "edit"
     end
@@ -65,6 +71,18 @@ class UsersController < ApplicationController
 
   def dashboard
     redirect_to welcome_path() unless current_user
+  end
+
+  private
+
+  def handle_settings_update
+    user = params[:user].slice(*[:email, :password, :password_confirmation])
+    if @user.update_attributes(user)
+      redirect_to root_path(), :notice => "Successfull updated your settings"
+    else
+      render :action => "settings"
+    end
+
   end
 
 end

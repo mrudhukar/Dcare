@@ -11,6 +11,7 @@ class Ability
       can :read, :all
       can :create, User
       can :update, User, :id => user.id
+      can :settings, User, :id => user.id
     end
 
 

@@ -30,6 +30,9 @@ Dcare::Application.routes.draw do
     collection do
       get 'dashboard'
     end
+    member do
+      get 'settings'
+    end
   end
 
   resources :user_sessions
