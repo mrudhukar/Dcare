@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Diagnosis::BloodTestTest < ActiveSupport::TestCase
+class Diagnosis::BloodTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

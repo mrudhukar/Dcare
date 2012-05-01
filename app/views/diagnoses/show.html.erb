@@ -47,26 +47,26 @@
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="1">
-							<%= f.simple_fields_for :blood_test do |blood_test| %>
-						  		<%= blood_test.input :hemoglobin_total %>
-						  		<%= blood_test.input :hemoglobin_differential_count %>
-						  		<%= blood_test.input :esr %>
-						  		<%= blood_test.input :blood_sugar_fasting %>
-						  		<%= blood_test.input :blood_sugar_pp %>
-						  		<%= blood_test.input :hba1c %>
-						  		<%= blood_test.input :triglycerides %>
-						  		<%= blood_test.input :total_cholestrol %>
-						  		<%= blood_test.input :ldl %>
-						  		<%= blood_test.input :hdl %>
-						  		<%= blood_test.input :blood_urea %>
-						  		<%= blood_test.input :serum_uric_acid %>
-						  		<%= blood_test.input :serum_creatinine %>
-						  		<%= blood_test.input :LFT_serum_albumin %>
-						  		<%= blood_test.input :LFT_gloulin_ratio %>
-						  		<%= blood_test.input :LFT_serum_bilirubin %>
-						  		<%= blood_test.input :LFT_SGOT %>
-						  		<%= blood_test.input :LFT_SGPT %>
-						  		<%= blood_test.input :LFT_GGT %>
+							<%= f.simple_fields_for :blood do |blood| %>
+						  		<%= blood.input :hemoglobin_total %>
+						  		<%= blood.input :hemoglobin_differential_count %>
+						  		<%= blood.input :esr %>
+						  		<%= blood.input :blood_sugar_fasting %>
+						  		<%= blood.input :blood_sugar_pp %>
+						  		<%= blood.input :hba1c %>
+						  		<%= blood.input :triglycerides %>
+						  		<%= blood.input :total_cholestrol %>
+						  		<%= blood.input :ldl %>
+						  		<%= blood.input :hdl %>
+						  		<%= blood.input :blood_urea %>
+						  		<%= blood.input :serum_uric_acid %>
+						  		<%= blood.input :serum_creatinine %>
+						  		<%= blood.input :LFT_serum_albumin %>
+						  		<%= blood.input :LFT_gloulin_ratio %>
+						  		<%= blood.input :LFT_serum_bilirubin %>
+						  		<%= blood.input :LFT_SGOT %>
+						  		<%= blood.input :LFT_SGPT %>
+						  		<%= blood.input :LFT_GGT %>
 						  	<%end%>
 						</div>
 						<div class="tab-pane" id="2">

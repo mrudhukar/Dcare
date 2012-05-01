@@ -1,4 +1,4 @@
-class Diagnosis::BloodTest < ActiveRecord::Base
+class Diagnosis::Blood < ActiveRecord::Base
   set_table_name "diagnosis_blood_tests"
 
   belongs_to :diagnosis
