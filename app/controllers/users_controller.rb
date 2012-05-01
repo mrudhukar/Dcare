@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       return
     end
 
-    user = params[:user].slice(*[:name, :date_of_birth, :gender, :phone_attributes, :address_attributes])
+    user = params[:user].slice(*[:name, "date_of_birth(3i)", "date_of_birth(2i)", "date_of_birth(1i)", :gender, :phone_attributes, :address_attributes])
         
     if @user.update_attributes(user)
       redirect_to user_path(@user), :notice => "Successfull updated your profile"
