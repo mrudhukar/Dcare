@@ -63,7 +63,7 @@ Dcare::Application.configure do
 
   config.middleware.use ExceptionNotifier,
     :email_prefix => "[Dcare Exception] ",
-    :sender_address => %{"Exception Notifier" <dcare.herokuapp.com>},
+    :sender_address => %{"Exception Notifier" <dcare@dcare.herokuapp.com>},
     :exception_recipients => ENV['ADMIN_EMAIL']
 
   # Enable threaded mode
