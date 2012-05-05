@@ -1,9 +1,9 @@
 <% @title = "Diagnosis Report" %>
-<%= simple_form_for @diagnosis, :validate => true, :html => { :class => 'form-horizontal' } do |f| %>
+
 <div class="container-fluid">
   <div class="row-fluid">
     <%= render :partial => "diagnoses/summary" %>
-      
+<%= simple_form_for @diagnosis, :validate => true, :html => { :class => 'form-horizontal' } do |f| %>      
     <div>
       <div class="tabbable">
         <ul class="nav nav-tabs">
@@ -74,6 +74,7 @@
         </div>
       </div>
     </div>
+<%end%>    
   </div>
 </div>
-<%end%>
+

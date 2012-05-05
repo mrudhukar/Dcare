@@ -12,6 +12,9 @@ class Diagnosis < ActiveRecord::Base
 
   def self.accessible_by(ability, action=nil)
   	
+  end
 
+  def display_date
+    diagnosis_date.strftime("%B %d, %Y") if diagnosis_date.present?
   end
 end

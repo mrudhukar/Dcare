@@ -30,6 +30,13 @@ body{
   margin-top: 20px;
 }
 
+.modal form{
+  margin-bottom: 0;
+  .modal-footer.form-actions{
+    text-align: left;
+  }
+}
+
 form.well{
   padding-bottom: 0;
   padding-left: 0;
@@ -37,4 +44,12 @@ form.well{
   .form-actions{
     margin-bottom: 0;
   }
-} 
+}
+
+.empty_content{
+  text-align: center;
+}
+
+.right_aligned{
+  text-align: right !important;
+}

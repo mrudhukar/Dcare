@@ -1,28 +1,26 @@
-<h2>Listing Medical Reports</h2>
- 
-<table class="table table-striped">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Diagnosis Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
- 
-<% @diagnoses.each do |diagnosis| %>
-  <tr>
-    <td><%= diagnosis.name %></td>
-    <td><%= diagnosis.description %></td>
-    <td><%= diagnosis.diagnosis_date %></td>
-    <td><%= link_to 'Show', diagnosis %></td>
-    <td><%= link_to 'Edit', edit_diagnosis_path(diagnosis) %></td>
-    <td><%= link_to 'Delete', diagnosis, :confirm => 'Are you sure?',
-                                     :method => :delete %></td>
-  </tr>
+<% @title = "All Medical Reports" %>
+<% @page_action = {name: "Add New Report", url: new_diagnosis_path} %>
+
+<% if @diagnoses.any? %>
+  <table class="table table-striped">
+    <tr>
+      <th class="span2">Name</th>
+      <th class="span6">Description</th>
+      <th class="span2">Diagnosis Date</th>
+      <th class="span2"></th>
+    </tr>
+   
+    <% @diagnoses.each do |diagnosis| %>
+      <tr>
+        <td><%= diagnosis.name %></td>
+        <td><%= diagnosis.description %></td>
+        <td><%= diagnosis.display_date %></td>
+        <td><%= link_to 'Show', diagnosis %> | <%= link_to 'Edit', edit_diagnosis_path(diagnosis) %> | <%= link_to 'Delete', diagnosis, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <div class="well empty_content">
+    You have not added any reports yet. <%= link_to("Click here", new_diagnosis_path)%> to a add a report.
+  </div>
 <% end %>
-</table>
- 
-<br />
- 
-<%= link_to 'New Report', new_diagnosis_path %>

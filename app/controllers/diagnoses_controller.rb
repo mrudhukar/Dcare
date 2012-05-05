@@ -1,5 +1,5 @@
 class DiagnosesController < ApplicationController
-    load_and_authorize_resource
+  load_and_authorize_resource
   
   def new
     @diagnosis = Diagnosis.new
@@ -9,7 +9,7 @@ class DiagnosesController < ApplicationController
     @diagnosis = Diagnosis.new(params[:diagnosis])
     @diagnosis.user = current_user
     if @diagnosis.save
-      redirect_to diagnosis_url(@diagnosis)
+      redirect_to edit_diagnosis_url(@diagnosis, :first_visit => true)
     else
       # @tab = TabConstants::REGISTER
       render :action => "new"
@@ -24,11 +24,12 @@ class DiagnosesController < ApplicationController
   end
  
   def edit
+    @first_visit = params[:first_visit]
   end
  
   def update
     if @diagnosis.update_attributes(params[:diagnosis])
-      redirect_to diagnosis_path(@diagnosis), :notice => "Successfully updated report"
+      redirect_to diagnosis_path(@diagnosis), :notice => "Successfully updated the report"
     else
       render action: "edit"
     end

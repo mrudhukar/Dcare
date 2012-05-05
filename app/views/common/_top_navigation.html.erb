@@ -24,7 +24,7 @@
               <li><%= link_to "Medical Calendar", "#" %></li>
               <li><%= link_to "Medical History", "#" %></li>
               <li class="divider"></li>
-              <li><%= link_to "Add a new medical report", main_app.new_diagnosis_path() %></li>
+              <li><%= link_to "Add a new medical report", main_app.new_diagnosis_path(), :remote => true %></li>
             </ul>
           </li>
 

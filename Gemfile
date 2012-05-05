@@ -52,3 +52,5 @@ gem 'forem', :git => "git://github.com/radar/forem.git"
 group :production do
   gem 'pg'
 end
+
+gem "therubyracer"
