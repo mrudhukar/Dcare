@@ -46,6 +46,7 @@ gem 'kaminari'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem "recaptcha", :require => "recaptcha/rails"
+gem 'exception_notification', :require => 'exception_notifier'
 
 gem 'forem', :git => "git://github.com/radar/forem.git"
 
