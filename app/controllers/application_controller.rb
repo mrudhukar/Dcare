@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   def require_login
     unless current_user_session
       session[:orginal_uri] = request.url
-      redirect_to login_path
+      redirect_to main_app.login_path
     end
   end
 end

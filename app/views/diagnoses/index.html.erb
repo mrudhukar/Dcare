@@ -4,10 +4,10 @@
 <% if @diagnoses.any? %>
   <table class="table table-striped">
     <tr>
-      <th class="span2">Name</th>
+      <th class="span3">Name</th>
       <th class="span6">Description</th>
       <th class="span2">Diagnosis Date</th>
-      <th class="span2"></th>
+      <th class="span1"></th>
     </tr>
    
     <% @diagnoses.each do |diagnosis| %>
@@ -15,7 +15,7 @@
         <td><%= diagnosis.name %></td>
         <td><%= diagnosis.description %></td>
         <td><%= diagnosis.display_date %></td>
-        <td><%= link_to 'Show', diagnosis %> | <%= link_to 'Edit', edit_diagnosis_path(diagnosis) %> | <%= link_to 'Delete', diagnosis, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'View', diagnosis %></td>
       </tr>
     <% end %>
   </table>
