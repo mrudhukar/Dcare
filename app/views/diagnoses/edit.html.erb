@@ -1,11 +1,29 @@
-<% @title = "Edit Report" %>
-<%= simple_form_for @diagnosis, :validate => true, :html => { :class => 'form-horizontal span7 well' } do |f| %>
-  <%= f.input :name%>
-  <%= f.input :description, :as => :text, :input_html => { :cols => 50, :rows => 7, :class => 'span5' } %>
-  <%= f.input :diagnosis_date, :as => :date, :start_year => Date.today.year - 90,
-                              :end_year => Date.today.year, :order => [:day, :month, :year], :input_html => { :class => 'span1' } %>
-  
-  <div class="form-actions">
-    <%= f.submit "Update", :class => 'btn btn-primary', :disable_with => "please wait.." %>
+<% @title = "Diagnosis Report" %>
+
+<% vars = {"blood" => ["Blood Test", @blood], "anthropometry" => ["Anthropometry", @anthropometry], "urine" => ["Urine Test", @urine], "other" => ["Others", @other]} %>
+
+<div class="diag_show">
+  <div class="row-fluid">
+    <%= render :partial => "diagnoses/summary" %>
   </div>
-<% end %>
+
+  <div class="tabbable">
+    <ul class="nav nav-tabs">
+      <% vars.each_pair do |key, value| %>
+        <% active = @diag_tab.present? ? @diag_tab == key : key == 'blood' %>
+        <li class="<%= active ? 'active' : '' %>">
+          <a href="#<%= key %>" data-toggle="tab"><%= value[0] %></a>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="tab-content">
+      <% vars.each_pair do |key, value| %>
+        <% active = @diag_tab.present? ? @diag_tab == key : key == 'blood' %>
+        <div class="tab-pane <%= active ? 'active' : '' %>" id="<%= key %>">
+          <%= render :partial => "diagnoses/details_form", :locals => {:object => value[1], :object_symbol => key.to_sym} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

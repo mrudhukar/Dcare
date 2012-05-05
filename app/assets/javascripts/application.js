@@ -17,7 +17,7 @@
 //= require_tree .
 
 function onLoadMethods() {
-  $(".datepicker" ).datepicker({dateFormat: 'MM dd, yy'});
+  $(".datepicker" ).datepicker({dateFormat: 'MM dd, yy', maxDate: "+0M +0D"});
 }
 
 $(document).ready(function(){

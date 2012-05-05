@@ -1,5 +1,5 @@
 <% @title = "All Medical Reports" %>
-<% @page_action = {name: "Add New Report", url: new_diagnosis_path} %>
+<% @page_action = {name: "Add New Report", url: new_diagnosis_path, :remote => true} %>
 
 <% if @diagnoses.any? %>
   <table class="table table-striped">
@@ -21,6 +21,6 @@
   </table>
 <% else %>
   <div class="well empty_content">
-    You have not added any reports yet. <%= link_to("Click here", new_diagnosis_path)%> to a add a report.
+    You have not added any reports yet. <%= link_to("Click here", new_diagnosis_path, :remote => true)%> to a add a report.
   </div>
 <% end %>

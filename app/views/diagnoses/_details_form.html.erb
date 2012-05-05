@@ -1,0 +1,13 @@
+<%= simple_form_for @diagnosis, :validate => true, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.simple_fields_for object_symbol do |g| %>
+    <% Diagnosis.get_used_attributes(object).keys.each do |attrib| %>
+      <%= g.input attrib %>
+    <% end %>
+  <% end %>
+
+  <div class="form-actions">
+    <%= f.submit "Update", :class => 'btn btn-primary', :disable_with => "please wait.." %>
+    <%= link_to "Cancel", diagnosis_path(@diagnosis), :class => 'btn', :disable_with => "please wait.." %>
+  </div>
+    
+<% end %>

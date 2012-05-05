@@ -1,80 +1,30 @@
 <% @title = "Diagnosis Report" %>
 
-<div class="container-fluid">
+<% 
+rows = [
+  {"blood" => ["Blood Test", @diagnosis.blood], "anthropometry" => ["Anthropometry", @diagnosis.anthropometry]},
+  {"urine" => ["Urine Test", @diagnosis.urine], "other" => ["Others", @diagnosis.other]}
+]
+%>
+
+<div class="diag_show">
   <div class="row-fluid">
     <%= render :partial => "diagnoses/summary" %>
-<%= simple_form_for @diagnosis, :validate => true, :html => { :class => 'form-horizontal' } do |f| %>      
-    <div>
-      <div class="tabbable">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#1" data-toggle="tab">Bloot Test</a></li>
-          <li><a href="#2" data-toggle="tab">Anthropometry</a></li>
-          <li><a href="#3" data-toggle="tab">Urine</a></li>
-          <li><a href="#4" data-toggle="tab">Others</a></li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="1">
-            <%= f.simple_fields_for :blood do |blood| %>
-              <%= blood.input :hemoglobin_total %>
-              <%= blood.input :hemoglobin_differential_count %>
-              <%= blood.input :esr %>
-              <%= blood.input :blood_sugar_fasting %>
-              <%= blood.input :blood_sugar_pp %>
-              <%= blood.input :hba1c %>
-              <%= blood.input :triglycerides %>
-              <%= blood.input :total_cholestrol %>
-              <%= blood.input :ldl %>
-              <%= blood.input :hdl %>
-              <%= blood.input :blood_urea %>
-              <%= blood.input :serum_uric_acid %>
-              <%= blood.input :serum_creatinine %>
-              <%= blood.input :LFT_serum_albumin %>
-              <%= blood.input :LFT_gloulin_ratio %>
-              <%= blood.input :LFT_serum_bilirubin %>
-              <%= blood.input :LFT_SGOT %>
-              <%= blood.input :LFT_SGPT %>
-              <%= blood.input :LFT_GGT %>
-            <%end%>
-          </div>
-          <div class="tab-pane" id="2">
-            <%= f.simple_fields_for :anthropometry do |anthropometry| %>
-              <%= anthropometry.input :height %>
-              <%= anthropometry.input :weight %>
-              <%= anthropometry.input :bmi %>
-              <%= anthropometry.input :abdominal_girth %>
-              <%= anthropometry.input :systoloic_bp %>
-              <%= anthropometry.input :diastolic_bp_supine %>
-              <%= anthropometry.input :diastolic_bp_errect %>
-            <%end%>
-          </div>
-          <div class="tab-pane" id="3">
-            <%= f.simple_fields_for :urine do |urine| %>
-              <%= urine.input :urine_pus_cells %>
-              <%= urine.input :urine_spot_protien %>
-              <%= urine.input :GFR %>
-              <%= urine.input :sugar %>
-              <%= urine.input :ketones %>
-              <%= urine.input :microalbumin %>
-              <%= urine.input :alb %>
-            <%end%>
-          </div>
-          <div class="tab-pane" id="4">
-            <%= f.simple_fields_for :other do |other| %>
-              <%= other.input :fundus %>
-              <%= other.input :VPT %>
-              <%= other.input :ECG %>
-              <%= other.input :TMT %>
-              <%= other.input :echocardiography_2d %>
-              <%= other.input :angiography %>
-              <%= other.input :ultrasound %>
-              <%= other.input :carotid_doppler %>
-              <%= other.input :color_doppler_for_limbs %>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-<%end%>    
   </div>
-</div>
 
+  <% rows.each do |vars| %>
+    <div class="row-fluid">
+      <% vars.each_pair do |key, value| %>
+        <div class="span6">
+          <h3>
+            <%= value[0] %> 
+            <% if value[1].present? %>
+              <small>(<%= link_to("edit", edit_diagnosis_path(@diagnosis, :entity => key)) %>)</small>
+            <% end %>
+          </h3>
+          <%= render :partial => "diagnoses/details", :locals => {:object => value[1], :object_symbol => key} %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

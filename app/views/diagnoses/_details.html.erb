@@ -1,0 +1,15 @@
+<% if object.present? %>
+  <table class="table table-stripped diag_details">
+    <% Diagnosis.get_used_attributes(object).each_pair do |key, value| %>
+      <% next if value.blank? %>
+      <tr>
+        <td><%= key.humanize %></td>
+        <td><%= value.presence %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <div class="well empty_content">
+    You have not added this detials to the report. <%= link_to("Click here", edit_diagnosis_path(@diagnosis, :entity => object_symbol))%> to a add.
+  </div>
+<% end %>

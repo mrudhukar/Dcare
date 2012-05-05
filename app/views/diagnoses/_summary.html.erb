@@ -1,37 +1,30 @@
-<div class="well">
+<div class="well diag_summary">
   <div class="row-fluid">
-    <div class="span8">
-      <div class="row-fluid">
-        <div class="span2">
-          <label class="label_header">Name</label>
-        </div>
-        <div class="span5">
-          <%= @diagnosis.name%>
-        </div>
-      </div>
-
-      <div class="row-fluid">
-        <div class="span2">
-          <label class="label_header">Description</label>
-        </div>
-        <div class="span5">
-          <%= @diagnosis.description.presence || content_tag(:i, "Not specified") %>
-        </div>
-      </div>
-
-      <div class="row-fluid">
-        <div class="span2">
-          <label class="label_header">Date of Diagnosis</label>
-        </div>
-        <div class="span5">
-          <%= @diagnosis.display_date %>
-        </div>
-      </div>
+    <div class="span10">
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd><%= @diagnosis.name%></dd>
+        <dt>Date of Diagnosis</dt>
+        <dd><%= @diagnosis.display_date %></dd>
+        <dt>Description</dt>
+        <dd><%= @diagnosis.description.presence || content_tag(:i, "Not specified") %></dd>
+      </dl>  
     </div>
-    <div class="span4 right_aligned">
-      <%= link_to "<i class='icon-print'></i> Print Report".html_safe, diagnosis_path(@diagnosis), :class => 'btn'%>
-      <%= link_to "<i class='icon-edit icon-white'></i> Edit".html_safe, edit_diagnosis_path(@diagnosis), :class => 'btn btn-primary', :remote => true, :disable_with => "please wait.." %>
-      <%= link_to "<i class='icon-trash icon-white'></i> Delete".html_safe, diagnosis_path(@diagnosis), :method => :delete, :confirm => "Are you sure you want remove this report?", :class => 'btn btn-danger'%>
+    <div class="span2">
+      <div class="btn-group">
+        <%= link_to "<i class='icon-edit icon-white'></i> Edit".html_safe, edit_diagnosis_path(@diagnosis), :class => 'btn btn-primary', :remote => true, :disable_with => "please wait.." %>
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to "<i class='icon-print'></i> Print Report".html_safe, diagnosis_path(@diagnosis) %>
+          </li>
+          <li>
+            <%= link_to "<i class='icon-trash icon-white'></i> Delete".html_safe, diagnosis_path(@diagnosis), :method => :delete, :confirm => "Are you sure you want remove this report?" %>
+          </li>
+        </ul>
+      </div>      
     </div>
   </div>
 </div>

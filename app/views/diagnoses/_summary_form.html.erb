@@ -12,7 +12,7 @@
 
     <div class="modal-footer form-actions">
       <%= f.submit @diagnosis.new_record? ? "Add Report" : "Update", :class => 'btn btn-primary', :disable_with => "please wait.." %>
-      <%= link_to("Close", "#", :class => "btn", :data => {:dismiss => "modal"}) %>
+      <%= link_to("Cancel", "#", :class => "btn", :data => {:dismiss => "modal"}) %>
     </div>
   <% end %>
 </div>

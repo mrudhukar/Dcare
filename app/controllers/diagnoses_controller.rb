@@ -24,11 +24,19 @@ class DiagnosesController < ApplicationController
   end
  
   def edit
-    @first_visit = params[:first_visit]
+    unless request.xhr?
+      @first_visit  = params[:first_visit]
+      @diag_tab     = params[:entity]
+
+      @blood         = @diagnosis.blood         || @diagnosis.build_blood
+      @anthropometry = @diagnosis.anthropometry || @diagnosis.build_anthropometry
+      @urine         = @diagnosis.urine         || @diagnosis.build_urine
+      @other         = @diagnosis.other         || @diagnosis.build_other
+    end
   end
  
   def update
-    if @diagnosis.update_attributes(params[:diagnosis])
+    if @diagnosis.update_attributes(params[:diagnosis].except(:user_id))
       redirect_to diagnosis_path(@diagnosis), :notice => "Successfully updated the report"
     else
       render action: "edit"
