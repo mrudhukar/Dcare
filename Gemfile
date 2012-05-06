@@ -48,7 +48,7 @@ gem 'kaminari'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'exception_notification', :require => 'exception_notifier'
 
-gem 'forem', :git => "git://github.com/radar/forem.git"
+gem 'forem'
 
 group :production do
   gem 'pg'
