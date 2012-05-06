@@ -52,6 +52,9 @@ gem 'forem', :git => "git://github.com/radar/forem.git"
 
 group :production do
   gem 'pg'
+  # MemCachier
+  gem 'memcachier'
+  gem 'dalli'
 end
 
 gem "therubyracer"
